@@ -1,0 +1,283 @@
+<title>Mầm 3D</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;800&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Layout: sân khấu 3D chiếm phần lớn, bảng điều khiển như "model sheet" bên phải (xếp dưới trên điện thoại) */
+:root{
+  --bg:#EFE8DA; --stage:#E4DAC6; --ground:#D6C8AE; --fg:#2A2433; --muted:#6E6577;
+  --line:#CDBFA6; --card:#F7F2E7; --orange:#FF7A1A; --leaf:#5FAE3A; --chip-on:#2A2433; --chip-on-fg:#F7F2E7;
+  --display:"Be Vietnam Pro",system-ui,sans-serif; --body:"Be Vietnam Pro",system-ui,sans-serif; --mono:"JetBrains Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#17151F; --stage:#1F1C2B; --ground:#2B2738; --fg:#F1EADB; --muted:#A79FB3;
+  --line:#3A3448; --card:#211E2D; --orange:#FF8A33; --leaf:#86CF5B; --chip-on:#F1EADB; --chip-on-fg:#17151F; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#17151F; --stage:#1F1C2B; --ground:#2B2738; --fg:#F1EADB; --muted:#A79FB3;
+  --line:#3A3448; --card:#211E2D; --orange:#FF8A33; --leaf:#86CF5B; --chip-on:#F1EADB; --chip-on-fg:#17151F; color-scheme:dark}
+html,body{height:100%}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:15px;line-height:1.5;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:16px;box-sizing:border-box}
+.wrap{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:20px;min-height:calc(100% - 0px)}
+@media (max-width:860px){.wrap{grid-template-columns:minmax(0,1fr)}}
+.stage{position:relative;background:var(--stage);border-radius:18px;overflow:hidden;min-height:520px}
+@media (max-width:860px){.stage{min-height:440px;height:62vh}}
+#c{position:absolute;inset:0;width:100%;height:100%;display:block;cursor:grab}
+#c:active{cursor:grabbing}
+.tag{position:absolute;left:16px;top:14px;font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:.04em}
+.views{position:absolute;left:12px;bottom:12px;right:12px;display:flex;gap:6px;flex-wrap:wrap}
+.panel{display:flex;flex-direction:column;gap:18px;min-width:0}
+h1{font-family:var(--display);font-weight:800;font-size:56px;line-height:1;margin:0;letter-spacing:-.02em;text-wrap:balance}
+h1 span{color:var(--leaf)}
+.lede{margin:6px 0 0;color:var(--muted)}
+h2{font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin:0 0 8px;font-weight:600}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+button{font:inherit;font-size:13px;color:var(--fg);background:var(--card);border:1px solid var(--line);border-radius:999px;padding:6px 12px;cursor:pointer}
+button:hover{border-color:var(--fg)}
+button:focus-visible{outline:2px solid var(--orange);outline-offset:2px}
+button[aria-pressed="true"]{background:var(--chip-on);color:var(--chip-on-fg);border-color:var(--chip-on)}
+button .k{font-family:var(--mono);font-size:11px;opacity:.7;margin-right:4px}
+.snap{background:var(--orange);color:#1B1A2E;border-color:var(--orange);font-weight:800;font-size:15px;padding:10px 18px;border-radius:12px;width:100%}
+.snap:hover{border-color:#1B1A2E}
+.sheet{display:grid;grid-template-columns:auto 1fr;gap:6px 10px;font-size:13px;margin:0}
+.sheet dt{display:flex;align-items:center;gap:8px;color:var(--muted)}
+.sheet dd{margin:0}
+.sw{width:14px;height:14px;border-radius:4px;border:1px solid var(--line);flex:none}
+.state-note{font-size:13px;color:var(--muted);min-height:2.6em;margin:8px 0 0}
+.quote{font-weight:600;border-left:3px solid var(--leaf);padding-left:10px;margin:0}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+  <div class="stage">
+    <canvas id="c" aria-label="Mô hình 3D nhân vật Mầm, kéo để xoay"></canvas>
+    <div class="tag">MODEL SHEET · MẦM · v1 · kéo để xoay, cuộn để zoom</div>
+    <div class="views" role="group" aria-label="Góc nhìn">
+      <button data-view="front">Trước</button>
+      <button data-view="q">3/4</button>
+      <button data-view="side">Bên</button>
+      <button data-view="back">Sau</button>
+      <button id="spin" aria-pressed="true">Tự xoay</button>
+    </div>
+  </div>
+
+  <aside class="panel">
+    <div>
+      <h1>MẦM<span>.</span></h1>
+      <p class="lede">Nhân vật chính series “Nếu bạn có thể…”. Đội mũ vỏ hạt, trên đó mọc một chồi lá báo cảm xúc.</p>
+    </div>
+
+    <p class="quote">“Khoan… để tớ nghĩ đã.”</p>
+
+    <button class="snap" id="snap">Búng tay ×2 · tách-tách… pốp</button>
+
+    <section>
+      <h2>Trạng thái lá mầm</h2>
+      <div class="chips" id="states" role="group" aria-label="Trạng thái lá mầm"></div>
+      <p class="state-note" id="note"></p>
+    </section>
+
+    <section>
+      <h2>Bảng màu</h2>
+      <dl class="sheet">
+        <dt><i class="sw" style="background:#F3E9D2"></i>Da</dt><dd>Kem sữa #F3E9D2</dd>
+        <dt><i class="sw" style="background:#C8995B"></i>Mũ vỏ hạt</dt><dd>Nâu hạt đậu #C8995B</dd>
+        <dt><i class="sw" style="background:#7BC950"></i>Lá mầm</dt><dd>Xanh chồi #7BC950</dd>
+        <dt><i class="sw" style="background:#FF7A1A"></i>Áo mưa</dt><dd>Cam #FF7A1A, sọc phản quang vàng</dd>
+        <dt><i class="sw" style="background:#2B3A67"></i>Quần</dt><dd>Navy #2B3A67</dd>
+        <dt><i class="sw" style="background:linear-gradient(90deg,#E23B3B 50%,#2F6FE0 50%)"></i>Tất</dt><dd>Lệch: trái đỏ, phải xanh</dd>
+      </dl>
+    </section>
+  </aside>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script>
+(function(){
+const canvas=document.getElementById('c');
+const stage=canvas.parentElement;
+const renderer=new THREE.WebGLRenderer({canvas,antialias:true,preserveDrawingBuffer:true});
+renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+renderer.shadowMap.enabled=true;
+renderer.shadowMap.type=THREE.PCFSoftShadowMap;
+
+
+const scene=new THREE.Scene();
+const camera=new THREE.PerspectiveCamera(32,1,0.1,100);
+camera.position.set(4.6,2.8,6.8);
+const controls=new THREE.OrbitControls(camera,canvas);
+controls.target.set(0,1.75,0);
+controls.enableDamping=true;controls.minDistance=3;controls.maxDistance=14;
+controls.maxPolarAngle=Math.PI*0.52;
+controls.autoRotate=true;controls.autoRotateSpeed=1.2;
+
+// Ánh sáng: key ấm + rim kem phía sau (giống phong cách low-poly của video mẫu)
+scene.add(new THREE.HemisphereLight(0xfff6e6,0x6b5a7a,0.75));
+const key=new THREE.DirectionalLight(0xffffff,0.85);
+key.position.set(3,6,4);key.castShadow=true;key.shadow.mapSize.set(1024,1024);
+key.shadow.camera.left=-3;key.shadow.camera.right=3;key.shadow.camera.top=4;key.shadow.camera.bottom=-1;
+scene.add(key);
+const rim=new THREE.DirectionalLight(0xffe2b8,0.9);rim.position.set(-3,3,-5);scene.add(rim);
+
+const M=(c,o={})=>new THREE.MeshStandardMaterial(Object.assign({color:c,flatShading:false,roughness:.6,metalness:0},o));
+const mat={
+  skin:M(0xF3E9D2),seed:M(0xC8995B),seedDark:M(0x9C6F3A),leaf:M(0x7BC950),
+  coat:M(0xFF7A1A),stripe:M(0xFFD43B,{emissive:0x5a4300}),navy:M(0x2B3A67),
+  red:M(0xE23B3B),blue:M(0x2F6FE0),sandal:M(0xEAF2F7),black:M(0x1B1A2E,{roughness:.4}),
+  blush:M(0xF4A3A8),petal:M(0xFF9EC4),petalC:M(0xFFD43B),white:M(0xffffff)
+};
+const add=(p,geo,m,pos,rot,sc)=>{const o=new THREE.Mesh(geo,m);o.castShadow=true;o.receiveShadow=true;
+  if(pos)o.position.set(...pos);if(rot)o.rotation.set(...rot);if(sc)o.scale.set(...sc);p.add(o);return o;};
+
+const ground=new THREE.Mesh(new THREE.CircleGeometry(3.2,96),new THREE.MeshStandardMaterial({color:0xd6c8ae,roughness:1}));
+ground.rotation.x=-Math.PI/2;ground.receiveShadow=true;scene.add(ground);
+
+const root=new THREE.Group();scene.add(root);
+const body=new THREE.Group();root.add(body);
+
+// Chân, tất lệch, dép tổ ong
+[[-.2,mat.red],[.2,mat.blue]].forEach(([x,sock])=>{
+  add(body,new THREE.CylinderGeometry(.095,.09,.42,28),mat.skin,[x,.5,0]);
+  add(body,new THREE.CylinderGeometry(.11,.11,.24,28),sock,[x,.2,0]);
+  add(body,new THREE.BoxGeometry(.28,.06,.42),mat.sandal,[x,.03,.06]);
+  add(body,new THREE.BoxGeometry(.24,.05,.05),mat.blue,[x,.09,.16]);
+});
+// Quần short
+add(body,new THREE.CylinderGeometry(.38,.42,.26,28),mat.navy,[0,.72,0]);
+// Áo mưa quá khổ
+add(body,new THREE.CylinderGeometry(.36,.6,1.0,28),mat.coat,[0,1.25,0]);
+add(body,new THREE.CylinderGeometry(.61,.61,.06,28),mat.coat,[0,.77,0]);
+// Khóa kéo + móc khóa hạt đậu
+add(body,new THREE.BoxGeometry(.03,.9,.03),mat.seedDark,[0,1.26,.5],[-.21,0,0]);
+add(body,new THREE.SphereGeometry(.07,28,18),mat.leaf,[.05,1.42,.47],null,[.8,1.2,.7]);
+// Mũ trùm bỏ ra sau lưng
+add(body,new THREE.SphereGeometry(.36,28,18,0,Math.PI*2,0,Math.PI/2),mat.coat,[0,1.62,-.3],[-2.2,0,0],[1,1,.7]);
+
+// Tay (có pivot ở vai để vẫy / búng)
+const arms=[];
+[-1,1].forEach(s=>{
+  const pivot=new THREE.Group();pivot.position.set(.4*s,1.66,0);pivot.rotation.z=.32*s;body.add(pivot);
+  add(pivot,new THREE.CylinderGeometry(.11,.13,.74,28),mat.coat,[0,-.37,0]);
+  add(pivot,new THREE.CylinderGeometry(.135,.135,.07,28),mat.stripe,[0,-.5,0]);
+  add(pivot,new THREE.CylinderGeometry(.135,.135,.05,28),mat.stripe,[0,-.6,0]);
+  add(pivot,new THREE.SphereGeometry(.11,28,18),mat.skin,[0,-.8,0]);
+  arms.push(pivot);
+});
+
+// Đầu hình giọt nước lộn ngược
+const head=new THREE.Group();head.position.y=1.66;body.add(head);
+const prof=[[0,0],[.42,.06],[.66,.22],[.77,.45],[.78,.62],[.72,.85],[.58,1.06],[.38,1.25],[.16,1.4],[0,1.46]].map(p=>new THREE.Vector2(p[0],p[1]));
+add(head,new THREE.LatheGeometry(new THREE.SplineCurve(prof).getPoints(48),56),mat.skin);
+
+// Mặt
+const eyes=[-.24,.24].map(x=>add(head,new THREE.SphereGeometry(.065,28,18),mat.black,[x,.66,.72],null,[1,1.15,.5]));
+const brows=[-.25,.25].map(x=>add(head,new THREE.BoxGeometry(.15,.025,.02),mat.black,[x,.83,.7]));
+[-.43,.43].forEach(x=>add(head,new THREE.CircleGeometry(.08,28),mat.blush,[x,.5,.64],[0,x*1.1,0]));
+const smile=add(head,new THREE.TorusGeometry(.09,.017,12,40,Math.PI),mat.black,[0,.48,.76],[0,0,Math.PI]);
+const ohMouth=add(head,new THREE.TorusGeometry(.06,.018,12,40),mat.black,[0,.44,.76]);
+const flatMouth=add(head,new THREE.BoxGeometry(.14,.022,.02),mat.black,[0,.44,.76]);
+
+// MŨ VỎ HẠT + chồi lá mầm
+const cap=new THREE.Group();cap.position.y=1.12;head.add(cap);
+add(cap,new THREE.SphereGeometry(.5,28,18,0,Math.PI*2,0,Math.PI/2),mat.seed,[0,0,0],null,[1,.62,.92]);
+add(cap,new THREE.TorusGeometry(.5,.04,12,40),mat.seedDark,[0,.01,0],[Math.PI/2,0,0],[1,.92,1]);
+// đường nứt vỏ hạt (chỗ chồi chui ra)
+add(cap,new THREE.BoxGeometry(.03,.02,.3),mat.seedDark,[.06,.3,.04],[0,.5,0]);
+const sprout=new THREE.Group();sprout.position.y=.3;cap.add(sprout);
+const stem=add(sprout,new THREE.CylinderGeometry(.03,.04,.42,28),mat.leaf,[0,.21,0]);
+const tip=new THREE.Group();tip.position.y=.42;sprout.add(tip);
+const leaves=[-1,1].map(s=>{const g=new THREE.Group();g.rotation.z=-.55*s;tip.add(g);
+  add(g,new THREE.SphereGeometry(.2,28,18),mat.leaf,[.2*s,0,0],null,[1,.22,.55]);return g;});
+const flower=new THREE.Group();flower.position.y=.06;tip.add(flower);
+for(let i=0;i<6;i++){const a=i/6*Math.PI*2;add(flower,new THREE.SphereGeometry(.06,28,18),mat.petal,[Math.cos(a)*.08,.04,Math.sin(a)*.08],null,[1,.4,1]);}
+add(flower,new THREE.SphereGeometry(.05,28,18),mat.petalC,[0,.06,0]);
+
+// Hạt "pốp" khi búng tay
+const burst=new THREE.Group();scene.add(burst);
+const sparks=[];for(let i=0;i<14;i++){const m=add(burst,new THREE.OctahedronGeometry(.06),i%2?mat.leaf:mat.stripe);m.visible=false;sparks.push(m);}
+
+const STATES=[
+  {k:'L0',name:'Bình thường',note:'Lá đứng yên. Trạng thái mặc định.'},
+  {k:'L1',name:'Tò mò',note:'Lá rung nhẹ. Dùng khi Mầm hào hứng, khám phá.'},
+  {k:'L2',name:'Kích hoạt',note:'Lá xoay tít như chong chóng. Luôn đi cùng cú búng tay ×2.'},
+  {k:'L3',name:'Buồn',note:'Lá rũ xuống trước mặt. Xấu hổ, hối hận.'},
+  {k:'L4',name:'Sốc',note:'Lá dựng đứng, hai lá tách ra. Dùng cho thumbnail.'},
+  {k:'L5',name:'Chiến thắng',note:'Nở một bông hoa nhỏ. Tối đa 1 lần mỗi tập.'},
+  {k:'L6',name:'Kiệt sức',note:'Lá héo, ngả nâu. Khi gặp hậu quả.'}
+];
+let state='L0',t0=performance.now();
+const box=document.getElementById('states'),note=document.getElementById('note');
+STATES.forEach(s=>{const b=document.createElement('button');b.id='st-'+s.k;b.innerHTML='<span class="k">'+s.k+'</span>'+s.name;
+  b.setAttribute('aria-pressed',s.k===state);b.onclick=()=>setState(s.k);box.appendChild(b);});
+function setState(k){state=k;t0=performance.now();
+  STATES.forEach(s=>document.getElementById('st-'+s.k).setAttribute('aria-pressed',s.k===k));
+  note.textContent=STATES.find(s=>s.k===k).note;
+  mat.leaf.color.set(k==='L6'?0x8a6a3c:0x7BC950);
+  flower.visible=k==='L5';
+  smile.visible=['L0','L1','L2','L5'].includes(k);ohMouth.visible=k==='L4';flatMouth.visible=k==='L6';
+  if(k==='L3'){smile.visible=true;smile.rotation.z=0;smile.position.y=.42}else{smile.rotation.z=Math.PI;smile.position.y=.48}
+  smile.scale.setScalar(k==='L5'?1.4:1);
+  eyes.forEach(e=>e.scale.set(k==='L4'?1.5:1,k==='L4'?1.6:(k==='L6'?.35:1.15),.5));
+  brows.forEach((b,i)=>{const s=i?1:-1;b.rotation.z=k==='L3'?-.35*s:k==='L4'?0:k==='L2'?.3*s:0;b.position.y=k==='L4'?.9:.83;});
+}
+setState('L0');
+
+// Búng tay: thu nhỏ còn bằng con kiến rồi to lại
+let snapT=-1;
+document.getElementById('snap').onclick=()=>{snapT=performance.now();setState('L2');};
+
+const views={front:[0,2.4,8.2],q:[4.6,2.8,6.8],side:[8.2,2.4,0],back:[0,2.4,-8.2]};
+document.querySelectorAll('[data-view]').forEach(b=>b.onclick=()=>{camera.position.set(...views[b.dataset.view]);
+  controls.autoRotate=false;document.getElementById('spin').setAttribute('aria-pressed','false');});
+const spinBtn=document.getElementById('spin');
+spinBtn.onclick=()=>{controls.autoRotate=!controls.autoRotate;spinBtn.setAttribute('aria-pressed',controls.autoRotate);};
+if(matchMedia('(prefers-reduced-motion: reduce)').matches){controls.autoRotate=false;spinBtn.setAttribute('aria-pressed','false');}
+
+// Màu nền theo theme
+function theme(){const cs=getComputedStyle(document.documentElement);
+  scene.background=new THREE.Color(cs.getPropertyValue('--stage').trim());
+  ground.material.color.set(cs.getPropertyValue('--ground').trim());}
+theme();matchMedia('(prefers-color-scheme: dark)').addEventListener('change',theme);
+new MutationObserver(theme).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+
+function resize(){const w=stage.clientWidth,h=stage.clientHeight;renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix();}
+new ResizeObserver(resize).observe(stage);resize();
+
+const ease=x=>x<.5?2*x*x:1-Math.pow(-2*x+2,2)/2;
+function tick(now){
+  const t=(now-t0)/1000,T=now/1000;
+  // nhịp thở + lá theo trạng thái
+  body.position.y=Math.sin(T*2)*.015;
+  let sx=0,sz=0,ry=0,lean=.55,stemS=1;
+  if(state==='L1'){sz=Math.sin(T*9)*.18;}
+  if(state==='L2'){ry=T*18;lean=.75;}
+  if(state==='L3'){sx=1.15;lean=1.25;}
+  if(state==='L4'){lean=.15;stemS=1.25;sz=Math.sin(T*40)*.02;}
+  if(state==='L5'){sz=Math.sin(T*3)*.1;lean=.4;}
+  if(state==='L6'){sz=.95;sx=.3;lean=1.35;stemS=.85;}
+  sprout.rotation.set(sx,ry,sz);stem.scale.y=stemS;tip.position.y=.42*stemS;
+  leaves.forEach((g,i)=>g.rotation.z+=((i?1:-1)*-lean-g.rotation.z)*.2);
+  // tay
+  arms[0].rotation.x=Math.sin(T*2)*.05;arms[1].rotation.x=-Math.sin(T*2)*.05;
+  // búng tay
+  if(snapT>0){const s=(now-snapT)/1000;
+    arms[1].rotation.z=s<.5?.32-Math.sin(s*Math.PI*4)*.9-1.4*Math.min(1,s*4):.32;
+    arms[1].rotation.x=s<.5?-1.1:arms[1].rotation.x;
+    let sc=1;
+    if(s>.5&&s<.75)sc=1-ease((s-.5)/.25)*.97;
+    else if(s>=.75&&s<1.9)sc=.03;
+    else if(s>=1.9&&s<2.15){const u=(s-1.9)/.25;sc=.03+ease(u)*1.12;}
+    else if(s>=2.15&&s<2.35)sc=1.15-((s-2.15)/.2)*.15;
+    root.scale.setScalar(sc);
+    const pop=(a,b)=>s>a&&s<b;
+    sparks.forEach((m,i)=>{const on=pop(.7,1.2)||pop(1.9,2.4);m.visible=on;
+      if(on){const u=s>1.5?(s-1.9)/.5:(s-.7)/.5;const a=i/sparks.length*Math.PI*2;
+        m.position.set(Math.cos(a)*u*1.3,1.4+Math.sin(a*3)*.3+u*.4,Math.sin(a)*u*1.3);m.rotation.set(u*6,u*4,0);m.scale.setScalar(1-u);}});
+    if(s>2.6){snapT=-1;root.scale.setScalar(1);setState('L1');}
+  }
+  controls.update();renderer.render(scene,camera);requestAnimationFrame(tick);
+}
+requestAnimationFrame(tick);
+})();
+</script>
