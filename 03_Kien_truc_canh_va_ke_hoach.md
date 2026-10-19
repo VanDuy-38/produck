@@ -105,14 +105,16 @@ TẦNG C — THEO TẬP (mới mỗi tập)
 
 ## 7. Lộ trình mùa 1 (6 tập)
 
+> Khung, tông, cách mở của từng tập: xem `NHAT_KY_TAP.md`.
+
 | Tập | Năng lực | Bông / cốt truyện mùa | Manh mối Người Áo Mưa Xám |
 |---|---|---|---|
 | 1 | Thu nhỏ bằng con kiến | Bông lộ năng lực phóng to | Giữ chiếc tất đỏ; miễn nhiễm LUẬT 3 |
 | 2 | Dừng thời gian | Gặp "Mũ Len Đỏ" — người dừng thời gian | Vẫn cử động khi thời gian dừng |
 | 3 | Tàng hình | Đội bị theo dõi | Nhìn thẳng vào Mầm đang tàng hình |
 | 4 | Thở dưới nước | Cứu người dưới sông Sài Gòn | Để lại dấu chân khô trên mặt nước |
-| 5 | Đọc suy nghĩ | Bông nghi ngờ đội | Đầu óc bà ấy hoàn toàn **im lặng** |
-| 6 | Nhân bản chính mình | Lộ mặt Người Áo Mưa Xám? | Bà ấy cũng đi tất lệch… |
+| 5 | Phóng to vs Thu nhỏ (Bông vs Mầm) | Bông nghi ngờ đội | Đứng giữa trận đấu mà không bị phóng to hay thu nhỏ |
+| 6 | Bất tử | Lộ mặt Người Áo Mưa Xám? | Có mặt trong ảnh chụp 100 năm trước, vẫn đi tất lệch… |
 
 ## 8. Ngân sách tham khảo / tập (Quy trình B)
 

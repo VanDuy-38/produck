@@ -85,6 +85,8 @@ drooping sprout, shocked stiff sprout, wilted brown sprout, white background
 
 ## 3. CÔNG THỨC 7 HỒI (khung thời lượng cho tập ~10 phút)
 
+> Đây chỉ là **khung K1**. Để tránh dập khuôn, chọn khung/tông/cách mở theo `04_Bien_the_kich_ban.md` và ghi vào `NHAT_KY_TAP.md`.
+
 | Hồi | % | Thời lượng (10:00) | Ô cần điền | Cắt Shorts? |
 |---|---|---|---|---|
 | H1 Cold open đời thường | 5% | 0:00–0:30 | Rắc rối nhỏ + gag hình ảnh → năng lực giải quyết | ✅ Short #1 |
@@ -99,6 +101,7 @@ drooping sprout, shocked stiff sprout, wilted brown sprout, white background
 
 ```
 TẬP SỐ:            ___
+TỔ HỢP:            Khung K_  Tông T_  Mở M_  Bối cảnh B_  Phá khuôn P_  (xem 04 + NHAT_KY_TAP)
 NĂNG LỰC:          Nếu bạn có thể ____________________
 RẮC RỐI MỞ ĐẦU:    (đời thường, ai cũng gặp) ____________
 GAG HÌNH ẢNH:      ____________ (callback ở hồi 7)

@@ -9,6 +9,8 @@ Series hoạt hình khoa học kể chuyện ngôi thứ 2, nhân vật chính *
 | `03_Kien_truc_canh_va_ke_hoach.md` | Kiến trúc asset, quy trình sản xuất, lịch, lộ trình mùa 1 |
 | `MODULE_MOI.md` | Hồ sơ nhân vật, prompt AI cố định, phiếu tập, ngân hàng chủ đề |
 | `voice_script_DRAFT.txt` | Lời đọc tập 1 cho TTS / thu âm |
+| `04_Bien_the_kich_ban.md` | 8 khung kể chuyện, 4 tông, 6 cách mở, 10 phá khuôn + luật chọn tổ hợp chống dập khuôn |
+| `NHAT_KY_TAP.md` | Nhật ký tổ hợp & chỉ số từng tập, đề xuất mùa 1 |
 | `mam_3d.html` | Mô hình 3D xem trước của Mầm (mở bằng trình duyệt) |
 
 ## Quy ước khi gửi tư liệu dựng một tập
