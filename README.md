@@ -1,24 +1,48 @@
-# NẾU BẠN CÓ THỂ… — Bộ thiết kế series hoạt hình
+# BO & YOU: 2D animated series kit
 
-Series hoạt hình khoa học kể chuyện ngôi thứ 2, nhân vật chính **MẦM** 🌱.
+An English-language 2D animated YouTube series where **the viewer is Bo**. Two core formats:
 
-| File | Nội dung |
+- **POV**: *"POV: You're Snowed In at School With Your Crush for 7 Days"*: countdown survival + a crush.
+- **WHAT IF**: *"What If You Could Shrink to the Size of an Ant?"*: a superpower vs. real science.
+- **HYBRID**: a power + a countdown (season finales).
+
+![Bo model sheet](art/previews/bo_model_sheet.png)
+
+## Start here
+
+| File | What's in it |
 |---|---|
-| `01_Ra_soat_QA.md` | Phân tích video mẫu + checklist QA mỗi tập |
-| `02_Storyboard_Thu_nho.md` | Storyboard tập 1: "Nếu bạn có thể thu nhỏ bằng con kiến?" |
-| `03_Kien_truc_canh_va_ke_hoach.md` | Kiến trúc asset, quy trình sản xuất, lịch, lộ trình mùa 1 |
-| `MODULE_MOI.md` | Hồ sơ nhân vật, prompt AI cố định, phiếu tập, ngân hàng chủ đề |
-| `voice_script_DRAFT.txt` | Lời đọc tập 1 cho TTS / thu âm |
-| `04_Bien_the_kich_ban.md` | 8 khung kể chuyện, 4 tông, 6 cách mở, 10 phá khuôn + luật chọn tổ hợp chống dập khuôn |
-| `NHAT_KY_TAP.md` | Nhật ký tổ hợp & chỉ số từng tập, đề xuất mùa 1 |
-| `mam_3d.html` | Mô hình 3D xem trước của Mầm (mở bằng trình duyệt) |
+| [`docs/00_SERIES_BIBLE.md`](docs/00_SERIES_BIBLE.md) | Positioning, narration rules, cast (Bo, Rae, Juno, Mr. Pickett, Mom, the Grey Raincoat), visual & sound identity, titles, thumbnails |
+| [`docs/01_STORY_ENGINE.md`](docs/01_STORY_ENGINE.md) | The shared spine, **What If** 7-beat structure, **POV** Countdown Ladder, Hybrid, episode cards, variety kit (frames/tones/openings/pattern breaks), selection rules |
+| [`docs/02_QA_CHECKLIST.md`](docs/02_QA_CHECKLIST.md) | Pre-upload checklist + fact-check table |
+| [`docs/03_PRODUCTION_2D.md`](docs/03_PRODUCTION_2D.md) | Asset tiers, rigging Bo, background stage lines & scale, pipeline, schedule, release plan |
+| [`docs/04_EPISODE_LOG.md`](docs/04_EPISODE_LOG.md) | Season 1 plan (8 episodes) + metrics log |
+| [`episodes/EP01_POV_Snowed_In_With_Your_Crush/`](episodes/EP01_POV_Snowed_In_With_Your_Crush/) | Pilot: full storyboard (58 shots) + VO script |
+| [`episodes/EP02_WHATIF_Shrink_To_Ant_Size/`](episodes/EP02_WHATIF_Shrink_To_Ant_Size/) | Episode 2 beat sheet |
 
-## Quy ước khi gửi tư liệu dựng một tập
+## Art
 
 ```
-tapXX/
-  clips/   1.1.mp4, 1.2.mp4 … (tên = số shot trong storyboard)
-  vo/      H1.wav … H7.wav, MAM_1.9.wav (thoại nhân vật)
-  music/   vui.mp3, cang.mp3, cinematic.mp3
-  sfx/     snap_pop.wav …
+art/
+  characters/bo/
+    bo_model_sheet.svg        turnaround + 18 expressions + 12 poses + mood light + palette
+    expressions/bo_face_*.svg 18 head swaps
+    poses/bo_pose_*.svg       12 key poses
+    turnaround/bo_*.svg       front, 3/4, side, back
+  backgrounds/BG01–BG08_*.svg 1920×1080, layered (sky/far/mid/fg) for parallax
+  previews/*.png              rendered previews, incl. Bo placed on every background
+tools/
+  bo.py, backgrounds.py       source of all art (edit these)
+  build_art.py                regenerates art/ (add --png for previews)
 ```
+
+![Backgrounds](art/previews/backgrounds_contact_sheet.png)
+
+## Episode delivery convention
+```
+episodes/EPxx_<FORMAT>_<Slug>/
+  STORYBOARD.md  VO_SCRIPT.txt
+  shots/ 1.1.mp4 …   vo/ NARR_B1.wav, BO_7.2.wav …   music/   sfx/   thumbs/
+```
+
+> The previous Vietnamese 3D version of the project (character "Mầm") is preserved in git history (commit `a8d3bfe`).

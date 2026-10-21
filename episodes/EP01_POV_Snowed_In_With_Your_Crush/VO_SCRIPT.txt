@@ -1,0 +1,107 @@
+VO SCRIPT — DRAFT
+EP01 · POV: You're Snowed In at School With Your Crush for 7 Days
+Narrator: dry, deadpan, ~150 wpm, US English. Never shouts.
+Marks: [.] 0.5 s pause · [..] 1 s pause · [BO] / [RAE] / [PLOW] / [FIREFIGHTER] = character lines, record separately
+(*) = fact to verify in docs/02_QA_CHECKLIST.md §5 before recording
+
+=== B1 HOOK — 0:00 ===
+Day one. You are snowed in at school. [.]
+The good news: you're not alone. [.]
+[RAE] This is your fault.
+The bad news: it's your crush. [.] And she is not thrilled. [..]
+
+=== B2 HOW YOU GOT HERE — 0:20 ===
+Friday. Two forty-five. Buses leave at three. [.]
+You forgot your charger. [.] Of course you did. [..]
+She stayed late too. To finish a project. [.] Different kind of problem. [..]
+The forecast said "light flurries." [.] The forecast lied. [..]
+By four, the power's out. By five, the cell tower's down. [.]
+By six, you realize everyone thinks you went home. [..]
+[BO] Okay. I have a plan.
+It was not a good plan. [..]
+
+=== B3 RULES — 1:10 ===
+Rule one: there's no way out. Every door is under six feet of snow. [.]
+Rule two: one vending machine. Thirty-seven snacks. [.] That's the menu. [.]
+Rule three: nobody knows you're here. [.] If you want to be found, you'll have to tell someone. [..]
+
+=== B4 DAYS 1–3 — 1:50 ===
+The first thing that tries to take you out isn't hunger. [.] It's cold. [.]
+Survival experts have a rule of threes. (*) [.]
+Three minutes without air. Three hours without shelter in brutal cold. Three days without water. Three weeks without food. [..]
+So: shelter. You build a fort. Gym mats for walls. Encyclopedias for insulation. [.]
+Your body gives off about a hundred watts of heat. (*) Roughly an old light bulb. [.]
+Two people in a small fort? Two light bulbs. [.] It helps. [..]
+[RAE] Can you... leave your light on?
+Turns out she's afraid of the dark. [.] Turns out your headphones make a decent nightlight. [..]
+[RAE] Why'd it go pink?
+[BO] ...Low battery.
+
+Day two. You're thirsty. There's snow everywhere. [.] Do not eat the snow. [.]
+[BO] Don't!
+Your body has to spend its own heat to melt it. (*) [.] You'd trade being thirsty for being colder. [.]
+Melt it first. Bottles inside your jacket. Slow, but it works. [.]
+Is it comfortable? No. [.] Did she laugh for the first time? Yes. [.] Worth it. [..]
+
+Day three. Math class. [.] But the math is your life. [.]
+A teenager needs around two thousand calories a day. (*) [.]
+Thirty-seven snacks is about nine thousand. (*) [.]
+For two people? Two days. [.] Maybe three, if nobody eats the gummy worms. [..]
+So you ration. Half a granola bar each. Measured. [.] With a ruler. [..]
+[RAE] Seriously?
+[BO] This felt like an emergency.
+And the cold makes it worse. Every shiver is your body burning fuel to stay warm. (*) [..]
+
+=== B5 DAY 4 — 5:00 ===
+Day four. You find Mr. Pickett's emergency shelf. [.]
+A hand-crank radio. A walkie-talkie. [.] And a note that says, "Do not touch. Yes, you." [..]
+The radio works. [.] The news doesn't help. [.]
+The radio can charge things. You just need a cable. [.]
+Like the one you came back for. [.] Which you still don't have. [..]
+Then the math breaks. [.] You left fifteen snacks last night. [.] There are twelve. [..]
+[RAE] Three snacks don't just disappear, Bo.
+[BO] I didn't—
+You didn't take them. [.] But you did take the emergency chocolate. [.] So. [..]
+
+=== B6 DAY 5 — 6:00 (letterbox) ===
+Day five. She moves to the gym. [.] Alone. [.] In the dark. [..]
+You tell yourself it's fine. [.] Your headphones disagree. [..]
+Here's the scary part about cold. It doesn't just hurt. [.]
+Even mild hypothermia slows your brain. (*) [.] People make worse choices, and don't notice. [..]
+(6.4 — wind only, no VO)
+You blink. It's gone. [.] The footprints aren't. [.]
+They start in the middle of the field. [.] From nowhere. [..]
+You run to tell her. [.] She's stopped shivering. [.]
+That should be good news. [.] It isn't. [..]
+When your body gets cold enough, it can stop shivering. (*) [.]
+Not because it's warm. [.] Because it's running out. [..]
+You do what you learned on day one. The fort. Body heat. [.]
+Warm her chest first, not her hands. (*) [..]
+(6.9 — music only, 10 s)
+[RAE] ...Your plans are terrible.
+[BO] I know.
+
+=== B7 DAYS 6–7 — 8:30 ===
+Day six. She needs a doctor. [.]
+Rule three: nobody knows you're here. [.] Unless you tell them. [..]
+[BO] Okay. I have a plan.
+[RAE] Your plans are terrible.
+[BO] Yeah. This one's worse.
+(7.3 — 35 s, NO WORDS, score only)
+A minute of cranking buys you a few minutes of power. (*) [.] You crank for an hour. [..]
+[BO] Hello? Anyone? Westbrook High. Two students. One's sick.
+[PLOW] ...County Plow Seven. Say again, kid?
+Your mood light is dead. [.] You don't need it. [.] Everyone can see your face. [..]
+Day seven. The sun comes out. [.] So does a snowplow. [..]
+[FIREFIGHTER] Thermal picked up three heat signatures in there. Where's the third kid?
+...Three. [..]
+
+=== B8 EPILOGUE — 11:00 ===
+Two weeks later. Everything's normal. [.] Mostly. [..]
+Your headphones work again. Sort of. [.] They only seem to have one color now. [..]
+(8.3–8.4 — music / SFX only)
+Would you give up the thing that makes you you... to save someone? [.]
+And who was the third heat signature? [.] Tell me in the comments.
+
+— END —
+Word count (narrator) ≈ 635 → ~4:15 of narration inside ~12:00 (rest = dialogue, music-only beats, action).
