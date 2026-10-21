@@ -19,7 +19,7 @@ An English-language 2D animated YouTube series where **the viewer is Bo**. Two c
 | [`docs/02_QA_CHECKLIST.md`](docs/02_QA_CHECKLIST.md) | Pre-upload checklist + fact-check table |
 | [`docs/03_PRODUCTION_2D.md`](docs/03_PRODUCTION_2D.md) | Asset tiers, rigging Bo, background stage lines & scale, pipeline, schedule, release plan |
 | [`docs/04_EPISODE_LOG.md`](docs/04_EPISODE_LOG.md) | Season 1 plan (8 episodes) + metrics log |
-| [`episodes/EP01_POV_Snowed_In_With_Your_Crush/`](episodes/EP01_POV_Snowed_In_With_Your_Crush/) | Pilot: full storyboard (58 shots) + VO script + fact check (cleared for VO) |
+| [`episodes/EP01_POV_Snowed_In_With_Your_Crush/`](episodes/EP01_POV_Snowed_In_With_Your_Crush/) | Pilot: storyboard (58 shots), VO script, fact check, **12:00 animatic** (`EP01_animatic.mp4` + `.srt`, built by `tools/animatic.py` from `animatic/shots.py`) |
 | [`episodes/EP02_WHATIF_Shrink_To_Ant_Size/`](episodes/EP02_WHATIF_Shrink_To_Ant_Size/) | Episode 2 beat sheet |
 
 ## Art
@@ -38,6 +38,8 @@ art/
   previews/*.png              rendered previews, incl. Bo placed on every background
 tools/
   bo.py, rae.py, backgrounds.py  source of all art (edit these)
+  ep01_sets.py                EP01 sets, props, science graphics
+  animatic.py                 shot list → animatic MP4 (TTS, SFX, music, subtitles)
   build_art.py                regenerates art/ (add --png for previews)
 ```
 

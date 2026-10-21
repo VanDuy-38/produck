@@ -21,6 +21,7 @@ MOOD = {
     "sad": "#5DA9FF",
     "crush": "#FF7EC8",
     "focus": "#B08CFF",
+    "off": "#3A4560",   # dead light (EP01: cable cut)
 }
 
 

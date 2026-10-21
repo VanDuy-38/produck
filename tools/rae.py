@@ -78,6 +78,8 @@ FACES = {
               + f'<ellipse cx="-28" cy="21" rx="10" ry="6" fill="{BLUSH}"/>'
               + f'<ellipse cx="29" cy="21" rx="10" ry="6" fill="{BLUSH}"/>'
               + _p("M -36 12 L -32 17", w=2.5) + _p("M -30 11 L -27 16", w=2.5)),
+    # extra (not on the model sheet): eyes closed, asleep / unconscious
+    "sleepy": ("droop", _p("M -23 8 Q -15 12 -7 8") + _p("M 7 8 Q 15 12 23 8") + _p("M -5 30 Q 0 32 5 30")),
 }
 
 FACE_ORDER = ["neutral", "unimpressed", "smirk", "eyeroll", "happy", "laughing",

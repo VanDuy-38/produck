@@ -7,7 +7,7 @@
 
 | EP | Format | Title | F | T | O | BG | P | Raincoat clue | Published | Views 7d | AVD % | CTR % | Notes |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| — | | | | | | | | | | | | | |
+| 1 | POV | POV: You're Snowed In at School With Your Crush for 7 Days | F2 | T3 (+T1) | O1 | BG04 + BG09/BG10/BG14 | P5 | footprints from nowhere · 3 heat signatures | animatic 2026-10-21 | | | | Animatic locked at 12:01; scratch TTS |
 
 ## Season 1 plan (checked against the selection rules)
 

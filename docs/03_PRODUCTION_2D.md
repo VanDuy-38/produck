@@ -64,6 +64,16 @@ Each SVG has layers `layer-sky`, `layer-far`, `layer-mid`, `layer-fg` (+ `layer-
 | BG06 | `BG06_abandoned_mall.svg` | 940 | Locked-in / apocalypse POVs |
 | BG07 | `BG07_forest_night.svg` | 920 | Lost / camping / spooky POVs |
 | BG08 | `BG08_kitchen_macro.svg` | 860 | Shrink episodes (ant scale) |
+| BG09 | `BG09_library_fort_night.svg` | 930 | EP01 library + gym-mat fort (also `with_fort=False`) |
+| BG09I | `BG09I_fort_inside_night.svg` | 1000 | Inside the fort: medium shots, nightlight glow |
+| BG10 | `BG10_gym_dark.svg` | 920 | Dark gym (EP01 low point) |
+| BG11 | `BG11_front_doors_snowed_in.svg` | 930 | Exits buried behind glass |
+| BG12 | `BG12_window_blizzard_interior.svg` | 1000 | Window from inside: storm / field / dawn, snow fill 0–1 |
+| BG13 | `BG13_science_room_emergency_shelf.svg` | 900 | Mr. Pickett's room + "DO NOT TOUCH" shelf |
+| BG14 | `BG14_hallway_power_out_vending.svg` | 930 | BG02 with power out + glowing vending machine |
+| BG04D | `BG04D_school_dawn_snowplow.svg` | 940 | Morning after the blizzard + County 7 plow |
+
+EP01 sets, props (vending machine, crank radio, walkie, fort, snowplow, firefighter, Grey Raincoat) and science graphics are code in `tools/ep01_sets.py`; parameters (snow fill, snack count, ponytail…) are passed by the animatic.
 
 **Character scale:** Bo is 250 units tall in his source files.
 - Medium-wide (standard): **scale 1.7** (≈ 425 px tall), feet on the stage line.
@@ -79,7 +89,7 @@ Each SVG has layers `layer-sky`, `layer-far`, `layer-mid`, `layer-fg` (+ `layer-
 | 1. Episode card + facts | `01_STORY_ENGINE.md §5`, `02_QA_CHECKLIST.md §5` | Filled card, fact table |
 | 2. Storyboard + VO script | Markdown in `episodes/EPxx_*/` | `STORYBOARD.md`, `VO_SCRIPT.txt` |
 | 3. Scratch VO | TTS (e.g. ElevenLabs) | Timing track |
-| 4. Animatic | Storyboard Pro / Krita / poses from `art/` on a timeline | Locked-length animatic (±5%) |
+| 4. Animatic | **`tools/animatic.py`** (automatic: shot list → MP4 + scratch TTS + SFX + SRT), or Storyboard Pro / Krita | Locked-length animatic (±5%) |
 | 5. Animation | Moho / Harmony / AE | Shots |
 | 6. Final VO | Human VO or tuned TTS (one voice, whole series) | 48 kHz WAV |
 | 7. Edit + text + SFX | DaVinci Resolve / Premiere / CapCut | 16:9 master |

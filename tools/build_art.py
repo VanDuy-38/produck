@@ -14,6 +14,7 @@ sys.path.insert(0, os.path.dirname(__file__))
 import bo  # noqa: E402
 import rae  # noqa: E402
 import backgrounds as bgs  # noqa: E402
+import ep01_sets  # noqa: E402
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 ART = os.path.join(ROOT, "art")
@@ -205,6 +206,9 @@ def build_two_shots():
 def build_backgrounds():
     files = []
     for code, slug, title, fn in bgs.BACKGROUNDS:
+        files.append(write(os.path.join(ART, "backgrounds", f"{code}_{slug}.svg"), fn()))
+    # season 1 / EP01 sets (Tier B/C) from tools/ep01_sets.py
+    for code, slug, fn in ep01_sets.EXPORT:
         files.append(write(os.path.join(ART, "backgrounds", f"{code}_{slug}.svg"), fn()))
     return files
 

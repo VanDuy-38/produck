@@ -1,3 +1,4 @@
 art/previews/_scene_tests/
 __pycache__/
 *.pyc
+episodes/*/animatic/build/
