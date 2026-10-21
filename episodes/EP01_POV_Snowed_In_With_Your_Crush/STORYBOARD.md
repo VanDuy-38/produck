@@ -1,7 +1,7 @@
 # EP01: "POV: You're Snowed In at School With Your Crush for 7 Days"
 
 > Format **POV** · Combo **F2 · T3 (+T1) · O1 · BG04 + BG02/BG03 · P5** · Target **~12:00**, 16:9 (letterbox 2.39:1 from 6.1 to 7.7)
-> Cast: **Bo** (you), **Rae** (crush; design pending, see bible §3), County Plow driver (voice), firefighter (guest).
+> Cast: **Bo** (you), **Rae** (crush; `art/characters/rae/`), County Plow driver (voice), firefighter (guest).
 > Faces = `art/characters/bo/expressions/` names · Light = headphone mood light (⚪ calm 🟢 idea 🔴 panic 🔵 sad 🩷 crush 🟣 focus ⚫ off)
 > Shot sizes: **WS** wide · **MWS** medium-wide (Bo scale 1.7) · **MS** medium · **CU** close-up · **ECU** extreme close-up
 > ✔︎ = fact that must be verified in `docs/02_QA_CHECKLIST.md §5` before recording.
@@ -18,7 +18,7 @@
 | Rule 2 | One vending machine: **37 snacks**. That's the menu |
 | Rule 3 | **Nobody knows you're here.** To be found, you have to tell someone (pays off in the climax) |
 | Ladder | D1 BODY warmth · D2 BODY water · D3 BODY food · D4 PLACE (radio found + snacks vanish) · D5 PEOPLE (split + hypothermia) · D6–7 SELF (sacrifice + rescue) |
-| Facts | ✔︎ Rule of threes · ✔︎ Resting body ≈ 100 W of heat · ✔︎ Eating snow costs body heat · ✔︎ ~2,000 kcal/day; snack ≈ 250 kcal · ✔︎ Shivering burns energy · ✔︎ Mild hypothermia impairs judgment · ✔︎ Severe hypothermia: shivering can stop · ✔︎ Rewarm the chest/core first · ✔︎ Crank radio: ~1 min cranking ≈ minutes of power |
+| Facts | ✔︎ Rule of threes · ✔︎ Resting body ≈ 100 W of heat · ✔︎ Eating snow costs body heat · ✔︎ ~2,000 kcal/day; snack ≈ 250 kcal · ✔︎ Shivering burns energy · ✔︎ Mild hypothermia impairs judgment · ✔︎ Moderate hypothermia: shivering can stop · ✔︎ Rewarm the chest/core first · ✔︎ Crank radio: ~1 min cranking ≈ minutes of power |
 | Sacrifice | Bo cuts his headphone cable to repair a charging cord, so his mood light goes **dark** |
 | Payoff | Rae fixes his headphones with her **orange scrunchie** and copies his "tap-tap" |
 | Grey Raincoat | Footprints that start from nowhere; snacks vanish; rescuers detect **three** heat signatures |
@@ -106,7 +106,7 @@
 | 6.5 | 6:50 | Bo blinks; the figure is gone. A line of footprints starts in the middle of the field and leads toward the school | WS | shocked · 🔴 | — | You blink. It's gone. The footprints aren't. They start in the middle of the field. From nowhere. | Low hit |
 | 6.6 | 7:05 | Bo runs into the gym. Rae curled up on the mat. Not moving. Not shivering | MWS | scared · 🔴 | — | You run to tell her. She's stopped shivering. That should be good news. It isn't. | Music out |
 | 6.7 | 7:20 | Graphic: body temperature line dropping; "shivering" icon switches off | Graphic | — | ✔︎ | When your body gets cold enough, it can stop shivering. Not because it's warm. Because it's running out. | Heartbeat |
-| 6.8 | 7:35 | Bo drags her mat to the fort. Takes off **his red jacket**, wraps her. Bottles on her chest | MS | determined · 🟣 | — | You do what you learned on day one. The fort. Body heat. Warm her chest first, not her hands. ✔︎ | Strings |
+| 6.8 | 7:35 | Bo drags her mat to the fort. Takes off **his red jacket**, wraps her. Pulls her into the fort, gym mats under and around her, sits close against her back (no cold bottles: see FACT_CHECK fix A) | MS | determined · 🟣 | — | You do what you learned on day one. The fort. Body heat. Warm her chest first, not her hands. ✔︎ | Strings |
 | 6.9 | 7:55 | Bo in just a T-shirt, shaking, keeps watch | MWS | crying · 🔵 | — | — (10 s, music only) | Piano |
 | 6.10 | 8:10 | Rae, barely awake: "…Your plans are terrible." Bo: "I know." | CU ↔ CU | sad · 🔵 | — | — | |
 
@@ -117,11 +117,11 @@
 | 7.1 | 8:30 | Bo stares at three things on the floor: the walkie, the radio, his headphones | Top-down | thinking · 🟣 | `DAY 6` | Day six. She needs a doctor. Rule three: nobody knows you're here. Unless you tell them. | |
 | 7.2 | 8:42 | Bo: "Okay. I have a plan." Rae (weak): "Your plans are terrible." Bo: "Yeah. This one's worse." | CU | determined · 🟣 | — | — | **tap-tap** |
 | 7.3 | 8:52 | **P5, 35 s, NO WORDS.** Bo taps his headphones one last time; music plays in them. He unplugs the cable, cuts it with scissors, strips the wires, twists them into the walkie's broken charging cord, tapes it to the radio's USB port. **His mood light fades to black** | Series of CUs | determined · ⚫ | — | — | Score only, swelling |
-| 7.4 | 9:27 | Cranking montage: Bo's hand, then Rae's hand joins on the crank | MS → ECU | determined · ⚫ | `+60 MIN` | A minute of cranking buys you a few minutes of power. ✔︎ You crank for an hour. | Crank clicks |
+| 7.4 | 9:27 | Cranking montage: Bo's hand, then Rae's hand joins on the crank | MS → ECU | determined · ⚫ | `+60 MIN` | A minute of cranking buys you about ten minutes of radio. Charging a walkie-talkie? Way less. ✔︎ You crank for an hour. | Crank clicks |
 | 7.5 | 9:45 | The walkie's tiny LED blinks on. Bo: "Hello? Anyone? Westbrook High. Two students. One's sick." Static | ECU LED → CU | nervous · ⚫ | — | — | Static |
 | 7.6 | 10:00 | A gruff voice: "…County Plow Seven. Say again, kid?" Bo laughs and cries at the same time | CU | crying → happy · ⚫ | — | Your mood light is dead. You don't need it. Everyone can see your face. | Music swells |
 | 7.7 | 10:15 | Dawn. A snowplow breaks through, orange lights. Firefighters dig out the front doors. **Letterbox out** | WS BG04 (dawn grade) | happy · ⚫ | `DAY 7` | Day seven. The sun comes out. So does a snowplow. | Heroic swell |
-| 7.8 | 10:35 | Firefighter checking a thermal camera: "Thermal picked up *three* heat signatures in there. Where's the third kid?" Bo and Rae look at each other | MS → 2-shot | shocked · ⚫ | — | *[VO]* …Three. | Music cuts |
+| 7.8 | 10:35 | Firefighter comes back out the doors, thermal screen shows 3 warm blobs in the dark gym: "We swept the building with thermal. *Three* heat signatures. Where's the third kid?" Bo and Rae look at each other | MS → 2-shot | shocked · ⚫ | — | *[VO]* …Three. | Music cuts |
 
 > ✂️ **Short #5**: 7.3 → 7.7 (60 s), *"He gave up his headphones to save her"*
 
@@ -141,4 +141,4 @@
 58 shots · ~12:00 · Letterbox from 6.1 to 7.7 · Wordless sequence 7.3 (35 s)
 
 ## New assets needed (Tier C)
-Snow-filled window, library fort, vending machine, science shelf + crank radio + walkie, snowplow, firefighter (guest), thermal camera screen, BG04 dawn grade, Rae design (Tier A).
+Snow-filled window, library fort, vending machine, science shelf + crank radio + walkie, snowplow, firefighter (guest), thermal camera screen, BG04 dawn grade. (Rae design: done.)

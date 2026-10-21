@@ -8,6 +8,8 @@ An English-language 2D animated YouTube series where **the viewer is Bo**. Two c
 
 ![Bo model sheet](art/previews/bo_model_sheet.png)
 
+![Rae model sheet](art/previews/rae_model_sheet.png)
+
 ## Start here
 
 | File | What's in it |
@@ -17,13 +19,16 @@ An English-language 2D animated YouTube series where **the viewer is Bo**. Two c
 | [`docs/02_QA_CHECKLIST.md`](docs/02_QA_CHECKLIST.md) | Pre-upload checklist + fact-check table |
 | [`docs/03_PRODUCTION_2D.md`](docs/03_PRODUCTION_2D.md) | Asset tiers, rigging Bo, background stage lines & scale, pipeline, schedule, release plan |
 | [`docs/04_EPISODE_LOG.md`](docs/04_EPISODE_LOG.md) | Season 1 plan (8 episodes) + metrics log |
-| [`episodes/EP01_POV_Snowed_In_With_Your_Crush/`](episodes/EP01_POV_Snowed_In_With_Your_Crush/) | Pilot: full storyboard (58 shots) + VO script |
+| [`episodes/EP01_POV_Snowed_In_With_Your_Crush/`](episodes/EP01_POV_Snowed_In_With_Your_Crush/) | Pilot: full storyboard (58 shots) + VO script + fact check (cleared for VO) |
 | [`episodes/EP02_WHATIF_Shrink_To_Ant_Size/`](episodes/EP02_WHATIF_Shrink_To_Ant_Size/) | Episode 2 beat sheet |
 
 ## Art
 
 ```
 art/
+  characters/rae/
+    rae_model_sheet.svg       turnaround + 12 expressions + 8 poses + ponytail meter + palette
+    expressions/ poses/ turnaround/
   characters/bo/
     bo_model_sheet.svg        turnaround + 18 expressions + 12 poses + mood light + palette
     expressions/bo_face_*.svg 18 head swaps
@@ -32,7 +37,7 @@ art/
   backgrounds/BG01–BG08_*.svg 1920×1080, layered (sky/far/mid/fg) for parallax
   previews/*.png              rendered previews, incl. Bo placed on every background
 tools/
-  bo.py, backgrounds.py       source of all art (edit these)
+  bo.py, rae.py, backgrounds.py  source of all art (edit these)
   build_art.py                regenerates art/ (add --png for previews)
 ```
 

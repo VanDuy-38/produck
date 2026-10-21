@@ -33,6 +33,9 @@ TIER C — PER EPISODE
 | `art/characters/bo/expressions/bo_face_*.svg` | 18 head swaps, origin = head centre (import as a switch/swap layer) |
 | `art/characters/bo/poses/bo_pose_*.svg` | 12 key poses (for thumbnails, storyboards and pose-to-pose animation) |
 | `art/characters/bo/turnaround/bo_*.svg` | Front, 3/4, side, back |
+| `art/characters/rae/rae_model_sheet.svg` | Rae master reference: turnaround, 12 expressions, 8 poses, ponytail meter, palette |
+| `art/characters/rae/expressions/rae_face_*.svg` · `poses/rae_pose_*.svg` · `turnaround/rae_*.svg` | Rae swaps, poses and views (rig the ponytail as one layer pivoting on the scrunchie; `droop` is a swap) |
+| `art/characters/bo_rae_lineup.svg` | Height/scale line-up |
 
 **Rigging Bo (cut-out / puppet style):**
 - Head = one group with a **face switch layer** (18 faces) + a **mood light colour** control on both cups.

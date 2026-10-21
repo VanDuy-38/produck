@@ -88,12 +88,12 @@ Rule three: nobody knows you're here. [.] Unless you tell them. [..]
 [RAE] Your plans are terrible.
 [BO] Yeah. This one's worse.
 (7.3 — 35 s, NO WORDS, score only)
-A minute of cranking buys you a few minutes of power. (*) [.] You crank for an hour. [..]
+A minute of cranking buys you about ten minutes of radio. (*) [.] Charging a walkie-talkie? Way less. [.] You crank for an hour. [..]
 [BO] Hello? Anyone? Westbrook High. Two students. One's sick.
 [PLOW] ...County Plow Seven. Say again, kid?
 Your mood light is dead. [.] You don't need it. [.] Everyone can see your face. [..]
 Day seven. The sun comes out. [.] So does a snowplow. [..]
-[FIREFIGHTER] Thermal picked up three heat signatures in there. Where's the third kid?
+[FIREFIGHTER] We swept the building with thermal. Three heat signatures. Where's the third kid?
 ...Three. [..]
 
 === B8 EPILOGUE — 11:00 ===

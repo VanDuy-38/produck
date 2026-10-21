@@ -48,8 +48,10 @@ Model sheet: `art/characters/bo/bo_model_sheet.svg`
 | Running gags | (1) The headphones play the **wrong song at the worst moment**. (2) Bo always forgets **one** thing (usually a charger). |
 
 ### RAE: the crush (recurring)
-*To be designed in the same style. Design brief:*
-- One identifier: **high ponytail with an orange scrunchie**, mint-green oversized hoodie.
+Model sheet: `art/characters/rae/rae_model_sheet.svg`
+- Identifiers: **high ponytail with an orange scrunchie**, mint-green oversized hoodie (long hem, thick sleeves, kangaroo pocket), side-swept fringe. Palette: hair #5A3B2E · hoodie #7FDDC0 · scrunchie #FF9F43.
+- Default face is **unimpressed**; signature pose is **arms crossed**.
+- Emotion meter: the **ponytail** (up = alert/scared/laughing · neutral · droop = sad/tired). One rotation/swap around the scrunchie, like Bo's mood light.
 - Competent, dry, sarcastic, secretly afraid of the dark. Always slightly better at survival than Bo, which is the joke.
 - Arc rule: they get closer every episode but **never "get together" in Season 1**. The "will they?" keeps the comments busy.
 

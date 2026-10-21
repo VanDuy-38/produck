@@ -4,7 +4,7 @@
     python3 tools/build_art.py          # SVGs only
     python3 tools/build_art.py --png    # SVGs + PNG previews (needs: pip install playwright)
 
-Outputs go to art/. Edit tools/bo.py (character) or tools/backgrounds.py
+Outputs go to art/. Edit tools/bo.py / tools/rae.py (characters) or tools/backgrounds.py
 (locations) and re-run; never hand-edit the generated SVGs.
 """
 import os
@@ -12,6 +12,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(__file__))
 import bo  # noqa: E402
+import rae  # noqa: E402
 import backgrounds as bgs  # noqa: E402
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
@@ -110,6 +111,97 @@ def build_bo():
     return files
 
 
+def build_rae():
+    out = os.path.join(ART, "characters", "rae")
+    files = []
+    for name in rae.FACE_ORDER:
+        files.append(write(os.path.join(out, "expressions", f"rae_face_{name}.svg"),
+                           doc((-110, -130, 220, 200), rae.head(name), 440, 400)))
+    for name in rae.POSE_ORDER:
+        files.append(write(os.path.join(out, "poses", f"rae_pose_{name}.svg"),
+                           doc((-130, -150, 300, 360), rae.body(name), 600, 720)))
+    for view in ("front", "three_quarter", "side", "back"):
+        files.append(write(os.path.join(out, "turnaround", f"rae_{view}.svg"),
+                           doc((-120, -130, 240, 340), rae.turnaround(view), 480, 680)))
+
+    W, H = 1800, 2300
+    s = [f'<rect width="{W}" height="{H}" fill="#F4F7FB"/>',
+         label(60, 80, "RAE — MODEL SHEET", 46, 900, anchor="start"),
+         label(60, 118, "The crush · dry, competent, secretly afraid of the dark · same build rules as Bo", 22, 400, "#5B6785", "start")]
+
+    def section(y, title):
+        s.append(f'<line x1="60" y1="{y}" x2="{W - 60}" y2="{y}" stroke="#C9D2E3" stroke-width="3"/>')
+        s.append(label(60, y + 40, title, 26, 900, anchor="start"))
+
+    section(150, "TURNAROUND")
+    for i, (view, name) in enumerate([("front", "FRONT"), ("three_quarter", "3/4"), ("side", "SIDE"), ("back", "BACK")]):
+        x = 190 + i * 290
+        s.append(place(rae.turnaround(view), x, 330))
+        s.append(label(x, 560, name, 22))
+    for y, t in [(330, "head centre"), (374, "chin"), (470, "hem (longer than Bo)"), (524, "ground")]:
+        s.append(f'<line x1="90" y1="{y}" x2="1270" y2="{y}" stroke="#9AA5BE" stroke-width="1.5" stroke-dasharray="6 6"/>')
+        s.append(label(1280, y + 6, t, 16, 400, "#5B6785", "start"))
+    notes = ["Identifiers:", "High ponytail + orange scrunchie", "Oversized mint hoodie, long hem",
+             "Thick sleeves, kangaroo pocket", "Side-swept fringe, lash flicks", "No nose, no fingers, no neck"]
+    for i, t in enumerate(notes):
+        s.append(label(1470, 240 + i * 30, t, 20 if i == 0 else 18, 700 if i == 0 else 400,
+                       bo.INK if i == 0 else "#5B6785", "start"))
+
+    section(600, "EXPRESSIONS (12)")
+    for i, name in enumerate(rae.FACE_ORDER):
+        col, row = i % 6, i // 6
+        x = 190 + col * 284
+        y = 780 + row * 250
+        s.append(place(rae.head(name), x, y, 1.15))
+        s.append(label(x, y + 92, name.upper(), 18))
+
+    section(1290, "KEY POSES (8)")
+    for i, name in enumerate(rae.POSE_ORDER):
+        col, row = i % 4, i // 4
+        x = 200 + col * 400
+        y = 1430 + row * 330
+        s.append(place(rae.body(name), x, y, 0.82))
+        s.append(label(x, y + 196, name.replace("_", " ").upper(), 18))
+
+    section(2050, "PONYTAIL METER — Rae's emotion meter (rotate around the scrunchie)")
+    for i, (st, txt) in enumerate([("up", "UP · alert / scared / laughing"), ("neutral", "NEUTRAL · default"),
+                                   ("droop", "DROOP · sad / tired")]):
+        x = 140 + i * 560
+        s.append(place(rae.head("neutral", tail=st), x, 2190, 0.75))
+        s.append(label(x + 70, 2198, txt, 19, 700, anchor="start"))
+    pal = [("skin", rae.SKIN), ("hair", rae.HAIR), ("hoodie", rae.HOODIE), ("scrunchie", rae.SCRUNCHIE), ("ink", rae.INK)]
+    for i, (n, c) in enumerate(pal):
+        x = 120 + i * 330
+        s.append(f'<rect x="{x}" y="2250" width="30" height="30" rx="6" fill="{c}" stroke="{bo.INK}" stroke-width="3"/>')
+        s.append(label(x + 40, 2272, f"{n} {c}", 17, 400, anchor="start"))
+    files.append(write(os.path.join(out, "rae_model_sheet.svg"), doc((0, 0, W, H), "".join(s), W, H)))
+
+    # Bo + Rae line-up
+    lu = [f'<rect width="900" height="560" fill="#F4F7FB"/>', label(40, 56, "BO + RAE — SCALE LINE-UP", 30, 900, anchor="start"),
+          place(bo.body("idle"), 320, 230, 1.2), place(rae.body("arms_crossed"), 600, 230, 1.2),
+          '<line x1="80" y1="460" x2="840" y2="460" stroke="#9AA5BE" stroke-width="2" stroke-dasharray="6 6"/>',
+          label(320, 520, "BO", 22), label(600, 520, "RAE", 22)]
+    files.append(write(os.path.join(ART, "characters", "bo_rae_lineup.svg"), doc((0, 0, 900, 560), "".join(lu), 900, 560)))
+    return files
+
+
+def build_two_shots():
+    """EP01 framing tests: Bo + Rae in the school hallway and classroom."""
+    files = []
+    for code, slug, title, fn in bgs.BACKGROUNDS:
+        if code not in ("BG02", "BG03"):
+            continue
+        svg = fn()
+        stage = bgs.STAGE_LINE[code]
+        k = 1.7
+        chars = (place(bo.body("idle", face="nervous", mood="crush"), 820, stage - 194 * k, k)
+                 + place(rae.body("arms_crossed"), 1120, stage - 194 * k, k))
+        fg_at = svg.find('<g id="layer-fg">')
+        svg = svg[:fg_at] + chars + svg[fg_at:]
+        files.append(write(os.path.join(ART, "previews", "_scene_tests", f"{code}_{slug}_with_bo_rae.svg"), svg))
+    return files
+
+
 def build_backgrounds():
     files = []
     for code, slug, title, fn in bgs.BACKGROUNDS:
@@ -154,9 +246,10 @@ def render_png(svg_paths, out_dir):
 if __name__ == "__main__":
     bo_files = build_bo()
     bg_files = build_backgrounds()
-    tests = build_scene_tests()
-    print(f"{len(bo_files)} Bo files, {len(bg_files)} backgrounds, {len(tests)} scene tests")
+    rae_files = build_rae()
+    tests = build_scene_tests() + build_two_shots()
+    print(f"{len(bo_files)} Bo files, {len(rae_files)} Rae files, {len(bg_files)} backgrounds, {len(tests)} scene tests")
     if "--png" in sys.argv:
-        sheet = [f for f in bo_files if f.endswith("bo_model_sheet.svg")]
+        sheet = [f for f in bo_files + rae_files if f.endswith(("_model_sheet.svg", "_lineup.svg"))]
         pngs = render_png(sheet + bg_files + tests, os.path.join(ART, "previews"))
         print(f"{len(pngs)} PNG previews")
